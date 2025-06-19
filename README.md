@@ -30,13 +30,5 @@ View the live app here:
 
 ---
 
-## Project Structure
 
- Project Structure
-
-To-do-list/
-├── index.html        # Main HTML structure
-├── style.css         # Styling for UI
-├── script.js         # JavaScript logic
-└── README.md         # Project documentation
 
