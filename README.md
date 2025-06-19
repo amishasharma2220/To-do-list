@@ -28,3 +28,17 @@ A simple and responsive **To-Do List** web application built using **HTML**, **C
 ```bash
 git clone https://github.com/amishasharma2220/To-do-list.git
 cd To-do-list
+### 2. Run the App Locally
+
+Just open the index.html file in your browser.
+open index.html   # On macOS
+### 3. Live Preview (GitHub Pages)
+
+Access the live version here:
+🔗 https://amishasharma2220.github.io/To-do-list/
+### 4.Project Structure
+To-do-list/
+├── index.html        # Main HTML structure
+├── style.css         # Styling for UI
+├── script.js         # JavaScript logic
+└── README.md         # Project documentation
