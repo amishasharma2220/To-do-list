@@ -1,42 +1,43 @@
-let taskForm = document.getElementById("taskForm");
-let taskList = document.getElementById("taskList");
+const form = document.getElementById('task-form');
+const input = document.getElementById('task-input');
+const list = document.getElementById('task-list');
 
 window.onload = loadTasks;
 
-taskForm.onsubmit = function (e) {
+form.onsubmit = function(e) {
   e.preventDefault();
-  let taskText = document.getElementById("taskInput").value;
-  addTask(taskText);
-  document.getElementById("taskInput").value = "";
+  const task = input.value.trim();
+  if (task) {
+    addTask(task);
+    input.value = '';
+  }
 };
 
 function addTask(text) {
   let tasks = JSON.parse(localStorage.getItem("tasks") || "[]");
-  tasks.push({ text: text, completed: false });
+  tasks.push({ text: text, done: false });
   localStorage.setItem("tasks", JSON.stringify(tasks));
   loadTasks();
 }
 
 function loadTasks() {
   let tasks = JSON.parse(localStorage.getItem("tasks") || "[]");
-  taskList.innerHTML = "";
+  list.innerHTML = "";
   tasks.forEach((task, index) => {
-    let li = document.createElement("li");
-    li.className = task.completed ? "completed" : "";
+    const li = document.createElement("li");
+    if (task.done) li.classList.add("completed");
+
     li.innerHTML = `
-      ${task.text}
-      <span>
-        <button onclick="toggleComplete(${index})">✔</button>
-        <button onclick="deleteTask(${index})">🗑</button>
-      </span>
+      <span onclick="toggleTask(${index})">${task.text}</span>
+      <button onclick="deleteTask(${index})">🗑</button>
     `;
-    taskList.appendChild(li);
+    list.appendChild(li);
   });
 }
 
-function toggleComplete(index) {
+function toggleTask(index) {
   let tasks = JSON.parse(localStorage.getItem("tasks"));
-  tasks[index].completed = !tasks[index].completed;
+  tasks[index].done = !tasks[index].done;
   localStorage.setItem("tasks", JSON.stringify(tasks));
   loadTasks();
 }
