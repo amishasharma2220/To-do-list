@@ -1,20 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>To-Do List</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <div class="container">
     <h2>To-Do List</h2>
+
     <form id="taskForm">
-      <input type="text" id="taskInput" placeholder="Enter a task..." required>
+      <input type="text" id="taskInput" placeholder="Enter a task..." required />
+      <select id="priorityInput" required>
+        <option value="" disabled selected>Priority</option>
+        <option value="High">High 🔴</option>
+        <option value="Medium">Medium 🟡</option>
+        <option value="Low">Low 🟢</option>
+      </select>
       <button type="submit">Add Task</button>
     </form>
+    <div class="dark-mode-toggle">
+        <label class="switch">
+          <input type="checkbox" id="themeSwitch">
+          <span class="slider"></span>
+        </label>
+        <span>Dark Mode</span>
+      </div>
+    <div class="progress-section">
+      <label id="progressText">0 of 0 tasks completed</label>
+      <div class="progress-bar">
+        <div id="progressFill"></div>
+      </div>
+    </div>
+
     <ul id="taskList"></ul>
   </div>
+
   <script src="script.js"></script>
 </body>
 </html>
-
